@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node src/index.ts --watch"
+    "dev": "ts-node src/index.ts --watch",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
   },
   "author": "",
   "license": "ISC",
