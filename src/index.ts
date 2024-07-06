@@ -2,7 +2,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import app from "./server";
+import config from "./config";
 
-app.listen(3001, () => {
-  console.log("Hello on http://127.0.0.1:3001");
+app.listen(config.port, () => {
+  console.log(`Hello on http://127.0.0.1:${config.port}`);
 });
