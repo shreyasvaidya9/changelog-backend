@@ -1,9 +1,10 @@
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
-import { protect } from "./modules/auth";
-import router from "./router";
 import { createNewUser, signin } from "./handlers/user";
+import { protect } from "./modules/auth";
+import { handleAllErrors } from "./modules/middleware";
+import router from "./router";
 
 const app = express();
 
@@ -22,5 +23,7 @@ app.use("/api", protect, router);
 
 app.post("/user", createNewUser);
 app.post("/signin", signin);
+
+app.use(handleAllErrors);
 
 export default app;
